@@ -5,7 +5,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-import Leyouts from "./Components/Leyouts";
+import Layouts from "./Components/Layout/Layouts";
 import Films from "./Pages/Films/Films";
 import About from "./Pages/About/About";
 import News from "./Pages/News/News";
@@ -17,7 +17,7 @@ import "./App.css";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path={ROUTES.FILMS} element={<Leyouts />}>
+      <Route path={ROUTES.FILMS} element={<Layouts />}>
         <Route index element={<Films />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path={ROUTES.NEWS} element={<News />} />
