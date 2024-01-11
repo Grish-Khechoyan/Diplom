@@ -5,7 +5,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-import Layouts from "./Components/Layout/Layouts";
+import Layouts from "./Components/Layouts/Layouts";
 import Films from "./Pages/Films/Films";
 import About from "./Pages/About/About";
 import News from "./Pages/News/News";
