@@ -5,7 +5,7 @@ import "./Aside.scss";
 export default function Aside() {
   return (
     <div className="aside">
-      <p className="aside_films">Films</p>
+       <h2 className="aside_moviePageName">MOVIE<p className="aside_movieNameMate">MATE</p></h2>
       <ul className="aside_ul">
         {navLinksData.map(({ title, to, icon }) => (
           <li className="aside_allFilms" key={to}>

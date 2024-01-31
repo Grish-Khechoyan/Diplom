@@ -1,9 +1,11 @@
-import  { useEffect, useState } from "react";
-import { getFilms} from "../../services/example.service";
-import ShowMovieCart from "../Movies/ShowMovieCard/ShowMovieCard";
 import Pagination from "../Pagination/Pagination";
+import "./Movies.scss";
+import { useEffect, useState } from "react";
+import { getFilms } from "../../services/example.service";
+import ShowMovieCart from "./ShowMovieCard/ShowMovieCard";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-export default function AllFilms() {
+export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [loadingInitial, setLoadingInitial] = useState(true);
@@ -14,8 +16,8 @@ export default function AllFilms() {
     const fetchData = async () => {
       try {
         setLoadingPagination(true);
-        const movieData = await getFilms(page, 8);
-        setMovies(movieData.results);
+        const movieData = await getFilms(page, 10);
+        setMovies((prevMovies) => [...prevMovies, ...movieData.results]);
         setTotalPages(movieData.total_pages);
         setLoadingInitial(false);
         setLoadingPagination(false);
@@ -28,18 +30,31 @@ export default function AllFilms() {
     fetchData();
   }, [page]);
 
-  const handlePageChange = (selectedPage) => {
-    setPage(selectedPage.selected + 1);
+  const fetchMoreData = () => {
+    if (page < totalPages) {
+      setPage(page + 1);
+    }
   };
+
+  // const handlePageChange = (selectedPage) => {
+  //   setPage(selectedPage.selected + 1);
+  // };
 
   return (
     <div>
       {loadingInitial ? (
         <p>Loading...</p>
       ) : (
-        <ShowMovieCart movies={ movies} />
+        <InfiniteScroll
+          dataLength={movies.length}
+          next={fetchMoreData}
+          hasMore={page < totalPages}
+          loader={<h4>Loading....</h4>}
+        >
+          <ShowMovieCart  movies={movies} />
+        </InfiniteScroll>
       )}
-      {loadingPagination ? (
+      {/* {loadingPagination ? (
         <p>Loading pagination...</p>
       ) : (
         <Pagination
@@ -47,7 +62,7 @@ export default function AllFilms() {
           totalPages={totalPages}
           handlePageChange={handlePageChange}
         />
-      )}
+      )} */}
     </div>
   );
 }

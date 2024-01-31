@@ -4,10 +4,16 @@
     line-height: 40px;
     display: flex;
     flex-direction: column;
+    background-color: #464F60;
    
-    .aside_films{
-        font-size: 18px;
+    .aside_moviePageName{
+        display: flex;
         color: azure;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        .aside_movieNameMate{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: yellow;
+        }
     }
     
     .aside_ul{

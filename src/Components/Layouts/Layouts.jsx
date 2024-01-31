@@ -5,16 +5,13 @@ import Aside from "./Aside/Aside";
 
 export default function Layouts() {
   return (
-    <div>
-      <div>
+    <div style={{ display: "flex", flex: "1" }}>
+      <Aside />
+
+      <div style={{ flex: "2", backgroundColor: "#161D30" }}>
         <Navbar />
-      </div>
-      <div style={{ display: "flex", flex: "1" }}>
-        <Aside />
-        <div style={{ flex: "2" }}>
-          <Header />
-          <Outlet />
-        </div>
+        <Outlet />
+        {/* <Header /> */}
       </div>
     </div>
   );

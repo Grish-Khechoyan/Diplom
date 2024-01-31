@@ -4,11 +4,7 @@
   box-sizing: border-box;
 }
 
-body{
-  /* background: linear-gradient(120deg, #044E68,#044E68); */
-  background: linear-gradient(120deg, #5E25CD,#7026C9,#8228C6,#942AC3,#A72CC0);
-  background-repeat: no-repeat;
-}
+
 
 
 /* :root {

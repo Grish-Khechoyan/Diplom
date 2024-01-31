@@ -24,7 +24,7 @@ export default function Navbar() {
     <div className="navbar">
       <nav className="navbar_navigation">
         <ul className="navigation_ul">
-          <h2 className="navbar_filmPageName">Movie Mate</h2>
+          {/* <h2 className="navbar_filmPageName">Movie Mate</h2> */}
           <form onSubmit={handleSearchMovie} className="navigation_search">
             <AiOutlineSearch className="search_icon" />
             <input
@@ -37,7 +37,7 @@ export default function Navbar() {
               placeholder="Find your movie"
             />
           </form>
-          <ul className="navigation_menuList">
+          {/* <ul className="navigation_menuList">
             {navLinksData.map(({ title, to }) => (
               <li className="navigation_menu" key={to}>
                 <Link className="navigation_link" to={to}>
@@ -45,8 +45,8 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-          </ul>
-          <ul className="navigation_iconList">
+          </ul> */}
+          {/* <ul className="navigation_iconList">
             {navIconData.map(({ to, icon }) => (
               <li className="navigation_icon" key={to}>
                 <Link className="navigation_icon_link" to={to}>
@@ -54,7 +54,7 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </ul>
       </nav>
       {searchMovie.length != 0 && <AllFilms searchMovie={searchMovie} />}

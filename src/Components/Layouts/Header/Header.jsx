@@ -1,3 +1,4 @@
+import InfiniteScroll from "react-infinite-scroll-component";
 import "./Header.scss";
 
 export function AppSelect({ data }) {

@@ -1,5 +1,6 @@
 import appAxios from "./axios.service";
 
+
 export const getFilms = async (page, limit) => {
   try {
     const response = await appAxios.get(`/discover/movie`, {
@@ -9,7 +10,8 @@ export const getFilms = async (page, limit) => {
         limit: limit,
       },
     });
-    const data = response.data;
+    
+    const data = response.data; 
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

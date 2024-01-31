@@ -1,11 +1,11 @@
 const ROUTES = {
-  ALLFILMS:"/",
-  FILMS: "Films",
+  HOME:"/",
+  ALLFILMS:"AllFilms",
+  MOVIES: "Movies",
   ABOUT: "About",
   NEWS: "News",
   SOCIAL: "Social",
   SAVEDFILMS:"SavedFilms",
-  FEATURES:"Features",
   DOCUMENTS:"Documents",
 };
 

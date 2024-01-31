@@ -4,13 +4,17 @@ import { PiFilmSlateBold } from "react-icons/pi";
 
 export const navLinksData = [
   {
-    title: "All Films",
-    to: ROUTES.FILMS,
+    title: "Home",
+    to: ROUTES.HOME,
+  },
+  {
+    title: "Movies",
+    to: ROUTES.MOVIES,
     icon: <GiFilmStrip />,
   },
   {
-    title: "Features",
-    to: ROUTES.FEATURES,
+    title: "Tv Shows",
+    to: ROUTES.NEWS,
   },
   {
     title: "Documents",
