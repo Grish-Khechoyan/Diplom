@@ -1,18 +1,22 @@
-import "./Header.scss"
+import "./Header.scss";
 
-
+export function AppSelect({ data }) {
+  return (
+    <select>
+      {data.map((el) => (
+        <option key={el}>{el}</option>
+      ))}
+    </select>
+  );
+}
 
 export default function Header() {
   return (
     <div className="header">
       <header className="header_wrap">
-        <h3 className="header_allFilms">All Films</h3>
+        <h3 className="header_allFilms">Film</h3>
         <div className="header_allCategory">
-          <select name="" id="">
-            <option value="">ALL Category</option>
-            <option value="">adssas</option>
-            <option value="">adssas</option>
-          </select>
+          <AppSelect  data={["All Category", "fgergs","sadas","sadas"]} />
 
           <select className="header_allDate" name="" id="">
             <option value="">ALL Date</option>
@@ -20,6 +24,7 @@ export default function Header() {
             <option value="">asjdvas</option>
             <option value="">asjdvas</option>
           </select>
+          <AppSelect data={["All Date", "fgergs", "All Category", "fgergs"]}/>
 
           <select className="header_allCountry" name="" id="">
             <option value="">All Country</option>

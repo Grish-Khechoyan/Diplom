@@ -1,53 +1,63 @@
 import { Link } from "react-router-dom";
-import { BsFacebook, BsYoutube, BsInstagram, BsTelegram } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
-import ROUTES from "../../../routes";
-
-import "./Navbar.scss"
+import { navIconData, navLinksData } from "./navbar.data";
+import "./Navbar.scss";
+import { useState } from "react";
+import { search } from "../../../services/example.service";
+import AllFilms from "../../../Pages/All Films/AllFilms";
 
 export default function Navbar() {
+  const [searchValue, setSearchValue] = useState("");
+  const [searchMovie, setSearchMovie] = useState([]);
+
+  const handleSearchMovie = async (e) => {
+    e.preventDefault();
+    try {
+      const searchData = await search(searchValue);
+      setSearchMovie(searchData);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
+  console.log(searchMovie);
   return (
     <div className="navbar">
       <nav className="navbar_navigation">
         <ul className="navigation_ul">
-          <li className="navigation_search">
-            <AiOutlineSearch />
-            <input type="search" name="" id="" placeholder="Search" />
-          </li>
-          <li className="navigation_allFilms">
-            <Link to={ROUTES.FILMS}>All Films</Link>
-          </li>
-          <li className="navigation_allAbout">
-            <Link to={ROUTES.ABOUT}>All ABOUT</Link>
-          </li>
-          <li className="navigation_allNews">
-            <Link to={ROUTES.NEWS}>All NEWS</Link>
-          </li>
-          <li className="navigation_allSocial">
-            <Link to={ROUTES.SOCIAL}>All SOCIAL</Link>
-          </li>
-          <li className="navigation_icon_FB">
-            <Link to={"https://www.facebook.com/"}>
-              <BsFacebook />
-            </Link>
-          </li>
-          <li className="navigation_icon_YouTube">
-            <Link to={"https://www.youtube.com/"}>
-              <BsYoutube />
-            </Link>
-          </li>
-          <li className="navigation_icon_Inst">
-            <Link to={"https://www.instagram.com"}>
-              <BsInstagram />
-            </Link>
-          </li>
-          <li className="navigation_icon_TG">
-            <Link to={"https://web.telegram.org/k/"}>
-              <BsTelegram />
-            </Link>
-          </li>
+          <h2 className="navbar_filmPageName">Movie Mate</h2>
+          <form onSubmit={handleSearchMovie} className="navigation_search">
+            <AiOutlineSearch className="search_icon" />
+            <input
+              onChange={(e) => setSearchValue(e.target.value)}
+              value={searchValue}
+              className="navigation_search_input"
+              type="search"
+              name=""
+              id=""
+              placeholder="Find your movie"
+            />
+          </form>
+          <ul className="navigation_menuList">
+            {navLinksData.map(({ title, to }) => (
+              <li className="navigation_menu" key={to}>
+                <Link className="navigation_link" to={to}>
+                  {title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="navigation_iconList">
+            {navIconData.map(({ to, icon }) => (
+              <li className="navigation_icon" key={to}>
+                <Link className="navigation_icon_link" to={to}>
+                  {icon}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </ul>
       </nav>
+      {searchMovie.length != 0 && <AllFilms searchMovie={searchMovie} />}
     </div>
   );
 }

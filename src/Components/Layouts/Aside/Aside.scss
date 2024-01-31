@@ -1,38 +1,113 @@
 .aside{
-    width: 200px;
-    height: 100vh;
-    display: inline-block;
-    border: 1px solid black;
-
-    .aside_filmPageName{
-        
-    }
+    width: 20%;
+    padding: 20px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+   
     .aside_films{
-        
+        font-size: 18px;
+        color: azure;
     }
     
     .aside_ul{
-
+        list-style: none;
+        font-size: 18px;
+        color: azure;
+        
         .aside_allFilms{
-
+            
         }
-        .aside_features{
-
-        }
-
-        .aside_documents{
-
-        }
-
-        .aside_savedFilms{
+        .aside_links{
+            text-decoration: none;
+            color: azure;
 
         }
     }
-    .aside_signUp{
+        
+        .aside_signUp{          
+        }
+        
+        .aside_signIn{
+            
+        }
+    
 
-    }
-
-    .aside_signIn{
-
-    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .aside{
+//     width: 200px;
+//     padding: 20px;
+//     padding-left: 20px;
+//     .aside_films{
+//         font-size: 20px;
+//         color: azure;
+//         padding-bottom: 50px;
+//         display: inline-flex;
+//     }
+//     .aside_ul{
+//         color: azure;
+//         list-style: none;
+//         font-size: 20px;
+//         line-height: 60px ;
+        
+//         .aside_li{
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: center;
+//             align-items: left;
+//             text-decoration: none;
+    
+    
+//         .aside_allFilms{
+//             color: azure;
+//             text-decoration: none;
+        
+//         }
+//         .aside_features{
+//             color: azure;
+//             text-decoration: none;
+//             }
+    
+//             .aside_documents{
+//                 color: azure;
+//                 text-decoration: none;
+    
+//             }
+            
+//             .aside_savedFilms{
+//                 color: azure;
+//                 text-decoration: none;
+                
+//             }
+
+//         }
+//             .aside_signUp{
+                
+//             }
+            
+//             .aside_signIn{
+                
+//             }
+//     }   
+// }

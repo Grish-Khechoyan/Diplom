@@ -6,10 +6,16 @@ import Aside from "./Aside/Aside";
 export default function Layouts() {
   return (
     <div>
-      <Aside />
-      <Navbar />
-      <Header />
-      <Outlet />
+      <div>
+        <Navbar />
+      </div>
+      <div style={{ display: "flex", flex: "1" }}>
+        <Aside />
+        <div style={{ flex: "2" }}>
+          <Header />
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 }

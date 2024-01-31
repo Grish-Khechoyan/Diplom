@@ -1,8 +1,8 @@
-// import axios from "axios";
+import axios from "axios";
 
-// //create axios instance for requests with base url, bearer token and etc.
-// const appAxios = axios.create({
-//   baseURL: process.env.REACT_APP_BASE_URL,
-// });
+const appAxios = axios.create({
+  baseURL:`https://api.themoviedb.org/3/`,
+  apiKEY:`?api_key=88d539e4615b22d8b094b9c0e143595d`,
+});
 
-// export default appAxios;
+export default appAxios;

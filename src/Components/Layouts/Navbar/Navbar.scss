@@ -1,49 +1,108 @@
 .navbar{
-   width: 80%;
-   border: 1px solid black;
-   display: inline-block;
-   .navbar_navigation{
-       
-       .navigation_ul{
-            list-style: none;
-            // display: flex;
+    display: flex;
+    justify-content: space-between; 
+    .navbar_navigation{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 16px;
+        padding-left: 16px;
+        .navigation_ul{
+            width:100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            gap: 20px;
+            .navbar_filmPageName{
+                width: 50%;
+                font-size:36px;
+                color: aliceblue;
+            }
             .navigation_search{
-
-                
+                border-bottom:1px solid rgba(192, 192, 192, 0.352);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 10px 10px 30px;
+                .search_icon{
+                   font-size: 26px; 
+                   color: rgba(192, 192, 192, 0.352);
+                }
+                .navigation_search_input{
+                    font-size: 16px;
+                    color: azure;
+                    padding: 12px;
+                    width: 360px;
+                    height: 40px;
+                    border: none;
+                    background: transparent;
+                    outline:none;   
+                }
             }
 
-            .navigation_allFilms{
 
-                
+            .navigation_menuList{
+                width: 100%;
+                justify-content: end;
+                list-style: none;
+                display: flex;
+                gap:40px;
+                .navigation_menu{
+                    .navigation_link{
+                        color: azure;
+                        text-decoration: none;
+                        font-size: 18px;   
+
+                    }
+                }
             }
+            .navigation_iconList{
+                display: flex;
+                width: 50%;
+                list-style: none;
+                gap:40px;
+                justify-content: end;
 
-            .navigation_allAbout{
-                    
-            }
+                .navigation_icon{
 
-            .navigation_allNews{
-
-            }
-
-            .navigation_allSocial{
-
-            }
-
-            .navigation_icon_FB{
-
-            }
-
-            .navigation_icon_YouTube{
-
-            }
-
-            .navigation_icon_Inst{
-  
-            }
-
-            .navigation_icon_TG{
-
+                        .navigation_icon_link{
+                            color: azure;
+                            font-size: 18px;  
+                        }
+                }
             }
         }
+
     }
+
+@media (max-width: 768px) {
+        
+    .navbar_navigation {
+        flex-direction: column;
+        align-items: flex-start; 
+    
+        .navigation_ul {
+        gap: 10px; 
+        }
+    
+        .navbar_filmPageName {
+        width: 100%; 
+        margin-right: 0; 
+        margin-bottom: 10px;
+        }
+    
+        .navigation_search {
+        width: 100%;
+        }
+    
+        .navigation_menuList,
+        .navigation_iconList {
+        width: 100%;
+        justify-content: flex-end; 
+        }
+    }
+    }
+    
 }
+
