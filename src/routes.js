@@ -7,6 +7,7 @@ const ROUTES = {
   SOCIAL: "Social",
   SAVEDFILMS:"SavedFilms",
   DOCUMENTS:"Documents",
+  VIEWMOVIES:"ViewMovies"
 };
 
 export default ROUTES;

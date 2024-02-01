@@ -1,52 +1,66 @@
-// .ShowMovieCard{
-//     width: 100%;
-//     padding-left:100px;
-//     padding-right: 100px;
-//     gap: 10px;
-    
-//     .ShowMovieCard_wrap{
-//         display: inline-block;
-//         .ShowMovieCard_img{
-//             width: 160px;
-//             border-radius: 20px;
-//         }
-        
-//         .ShowMovieCard_info{
-//             width: 100%;
-//             color: azure;
-//             .ShowMovieCard_title{
-//                 width: 100%;
-//                 font-size: 16px;
-//             }
-            
-//             .ShowMovieCard_average{
+.ShowMovieCard {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
 
-//             }
-//         }
-//     }
-// }
-
-.ShowMovieCard{
-   width: 80%;
-    .ShowMovieCard_wrap{
+    &_wrap {
         display: inline-block;
+        padding: 10px;
+        position: relative;
+        overflow: hidden; 
 
-        .ShowMovieCard_img{
-            width: 160px;
+        .ShowMovieCard_img {
+            margin-top: 10px;
+            width: 220px;
             border-radius: 20px;
+            transition: transform 0.3s ease-in-out; 
         }
-        
-        .ShowMovieCard_info{
+
+        .ShowMovieCard_info {
             width: 100%;
-            border: 1px solid red;
+            padding-top: 8px;
+            line-height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding-left:10px;
             color: azure;
-
-            .ShowMovieCard_title{
-                font-size: 14px;
-            }
+            text-align: left;
+            transform: translateY(100%); 
+            transition: transform 0.3s ease-in-out;
             
-            .ShowMovieCard_average{
+            
+            .ShowMovieCard_title { 
+                font-size: 16px;
+            }
 
+            .ShowMovieCard_average {
+                font-size: 15px;
+            }
+
+            .ShowMovieCard_language{
+                text-align: end;
+                padding-right:  10px;
+                font-size: 16px;
+                text-transform: uppercase;
+                bottom: 0;
+            }
+        }
+
+        &:hover {
+            .ShowMovieCard_img {
+                transform: scale(1.08); 
+                object-fit: cover;
+                border-radius: 25px;
+
+            }
+
+            .ShowMovieCard_info {
+                height: 30%;
+                border-radius:0px 0px 20px 20px ;
+                padding-left:10px;
+                transform: translateY(0);
+                background: linear-gradient(rgba(95, 95, 95, 0.607),rgba(0, 0, 0, 0.881));
             }
         }
     }

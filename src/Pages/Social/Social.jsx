@@ -8,7 +8,6 @@ export default function Social() {
     const fetchTv = async () => {
       try {
         const dataTv = await fetchTvData();
-        console.log(dataTv.results);
         setTvData(dataTv.results);
       } catch (error) {
         console.error("Error fetching TV data:", error);

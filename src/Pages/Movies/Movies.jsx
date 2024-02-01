@@ -5,7 +5,7 @@ import { getFilms } from "../../services/example.service";
 import ShowMovieCart from "./ShowMovieCard/ShowMovieCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export default function Movies() {
+export default function Movies({ searchMovie }) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [loadingInitial, setLoadingInitial] = useState(true);
@@ -16,8 +16,8 @@ export default function Movies() {
     const fetchData = async () => {
       try {
         setLoadingPagination(true);
-        const movieData = await getFilms(page, 10);
-        setMovies((prevMovies) => [...prevMovies, ...movieData.results]);
+        const movieData = await getFilms(page);
+        setMovies((prevMovies) => [...prevMovies, ...movieData]);
         setTotalPages(movieData.total_pages);
         setLoadingInitial(false);
         setLoadingPagination(false);
@@ -32,13 +32,10 @@ export default function Movies() {
 
   const fetchMoreData = () => {
     if (page < totalPages) {
-      setPage(page + 1);
+      setPage((prevPage) => prevPage + 1);
+      setLoadingPagination(true); // Set loading state while fetching more data
     }
   };
-
-  // const handlePageChange = (selectedPage) => {
-  //   setPage(selectedPage.selected + 1);
-  // };
 
   return (
     <div>
@@ -51,7 +48,8 @@ export default function Movies() {
           hasMore={page < totalPages}
           loader={<h4>Loading....</h4>}
         >
-          <ShowMovieCart  movies={movies} />
+          {searchMovie && searchMovie.length === 0 && <ShowMovieCart movies={movies} />}
+          {searchMovie && searchMovie.length > 0 && <ShowMovieCart movies={searchMovie} />}
         </InfiniteScroll>
       )}
       {/* {loadingPagination ? (

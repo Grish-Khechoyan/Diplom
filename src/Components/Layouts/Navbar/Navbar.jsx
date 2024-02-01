@@ -5,6 +5,7 @@ import "./Navbar.scss";
 import { useState } from "react";
 import { search } from "../../../services/example.service";
 import AllFilms from "../../../Pages/All Films/AllFilms";
+import Movies from "../../../Pages/Movies/Movies";
 
 export default function Navbar() {
   const [searchValue, setSearchValue] = useState("");
@@ -57,7 +58,7 @@ export default function Navbar() {
           </ul> */}
         </ul>
       </nav>
-      {searchMovie.length != 0 && <AllFilms searchMovie={searchMovie} />}
+      { <Movies searchMovie={searchMovie} />}
     </div>
   );
 }
