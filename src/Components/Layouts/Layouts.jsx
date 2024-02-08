@@ -1,18 +1,18 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar/Navbar";
-import Header from "./Header/Header";
 import Aside from "./Aside/Aside";
 
 export default function Layouts() {
   return (
-    <div style={{ display: "flex" ,flex:"1" }} >
-      
+    <div style={{ display: "flex" }}>
       <Aside />
 
-      <div style={{ flex: "2", backgroundColor: "#161D30",}}>
-        <Navbar />
+      <div
+        style={{
+          flex: 1,
+          backgroundColor: "#161D30 ",
+          height: "100vh",
+        }}>
         <Outlet />
-        {/* <Header /> */}
       </div>
     </div>
   );

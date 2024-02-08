@@ -1,119 +1,77 @@
-.aside{
-    width: 20%;
+.aside {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #464f60;
+  padding: 10px 80px 10px 0px;
+
+  .aside_moviePageName {
+    padding: 10px;
+    color: azure;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    > span {
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      color: yellow;
+    }
+  }
+
+  .aside_user {
+    display: flex;
+    align-items: center;
     padding: 20px;
-    line-height: 40px;
+
+    .aside_userImg {
+      width: 30px;
+    }
+    .aside_userInfo {
+      .aside_userName {
+        font-size: 16px;
+        padding: 10px;
+      }
+      .aside_userEditIcon {
+      }
+    }
+  }
+
+  .nav {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    background-color: #464F60;
-   
-    .aside_moviePageName{
-        display: flex;
-        color: azure;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        .aside_movieNameMate{
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            color: yellow;
-        }
-    }
-    
-    .aside_ul{
-        list-style: none;
+    border-top: 1px solid rgba(192, 192, 192, 0.317);
+    padding-top: 20px;
+
+    .nav_link {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+
+      p {
         font-size: 18px;
-        color: azure;
-        
-        .aside_allFilms{
-            
-        }
-        .aside_links{
-            text-decoration: none;
-            color: azure;
+        margin: 0;
+      }
 
-        }
+      &.active {
+        background: rgba(192, 192, 192, 0.317);
+        color: yellow;
+        border-left: 2px solid yellow;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: yellow;
+        border-left: 2px solid yellow;
+      }
     }
-        
-        .aside_signUp{          
-        }
-        
-        .aside_signIn{
-            
-        }
-    
+  }
 
-    
+  .aside_signIn {
+    text-align: left;
+    border: none;
+    background: transparent;
+    color: azure;
+    padding: 10px;
+    margin-top: auto;
+    font-size: 18px;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .aside{
-//     width: 200px;
-//     padding: 20px;
-//     padding-left: 20px;
-//     .aside_films{
-//         font-size: 20px;
-//         color: azure;
-//         padding-bottom: 50px;
-//         display: inline-flex;
-//     }
-//     .aside_ul{
-//         color: azure;
-//         list-style: none;
-//         font-size: 20px;
-//         line-height: 60px ;
-        
-//         .aside_li{
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//             align-items: left;
-//             text-decoration: none;
-    
-    
-//         .aside_allFilms{
-//             color: azure;
-//             text-decoration: none;
-        
-//         }
-//         .aside_features{
-//             color: azure;
-//             text-decoration: none;
-//             }
-    
-//             .aside_documents{
-//                 color: azure;
-//                 text-decoration: none;
-    
-//             }
-            
-//             .aside_savedFilms{
-//                 color: azure;
-//                 text-decoration: none;
-                
-//             }
-
-//         }
-//             .aside_signUp{
-                
-//             }
-            
-//             .aside_signIn{
-                
-//             }
-//     }   
-// }

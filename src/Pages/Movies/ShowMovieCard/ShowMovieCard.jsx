@@ -1,17 +1,15 @@
 import StarRatings from "react-star-ratings";
 import { Link } from "react-router-dom";
-import ROUTES from "../../../routes";
 
 import "./ShowMovieCard.scss";
 
-export default function ShowMovieCart({ movies }) {
+export default function ShowMovieCard({ movies }) {
   const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
   return (
     <div className="ShowMovieCard">
       {movies.map((movie) => (
         <div className="ShowMovieCard_wrap" key={movie.id}>
-          {/* <img src="../../../../assets/images/bookmark.png" alt="" /> */}
           <img
             className="ShowMovieCard_img"
             src={`${imgBaseURL}${movie.poster_path}`}
@@ -29,7 +27,8 @@ export default function ShowMovieCart({ movies }) {
                 starHoverColor="yellow"
               />
             </p>
-            <Link to={ROUTES.VIEWMOVIES}>View:</Link>
+            <Link to={`${movie.id}`}>View</Link>
+
             <p className="ShowMovieCard_language">{movie.original_language}</p>
           </div>
         </div>

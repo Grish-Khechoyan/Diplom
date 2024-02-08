@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 
 import SavedFilms from "./Pages/SavedFilms/SavedFilms";
-import Documents from "./Pages/Documents/Documents";
+import ViewMovies from "./Pages/ViewMovies/ViewMovies";
+import Rating from "./Pages/Rating/Rating";
 import Layouts from "./Components/Layouts/Layouts";
 import Movies from "./Pages/Movies/Movies";
 import Social from "./Pages/Social/Social";
@@ -16,7 +17,6 @@ import Home from "./Pages/Home/Home";
 import ROUTES from "./routes";
 
 import "./App.css";
-import ViewMovies from "./Pages/ViewMovies/ViewMovies";
 
 function App() {
   const router = createBrowserRouter(
@@ -27,14 +27,14 @@ function App() {
         <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path={ROUTES.NEWS} element={<News />} />
         <Route path={ROUTES.SOCIAL} element={<Social />} />
-        <Route path={ROUTES.DOCUMENTS} element={<Documents />} />
+        <Route path={ROUTES.RATING} element={<Rating />} />
         <Route path={ROUTES.SAVEDFILMS} element={<SavedFilms />} />
-        <Route path={ROUTES.VIEWMOVIES} element={<ViewMovies/>}  />
+        <Route path="/movies/:id" element={<ViewMovies />} />
       </Route>
     )
   );
   return (
-    <div>
+    <div style={{ height: "100vh", overflowY: "hidden" }}>
       <RouterProvider router={router} />
     </div>
   );

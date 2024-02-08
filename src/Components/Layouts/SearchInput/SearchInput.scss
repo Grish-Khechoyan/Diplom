@@ -1,7 +1,9 @@
 .navbar{
     width: 100%;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: end;
     .navbar_navigation{
         display: flex;
         justify-content: end;

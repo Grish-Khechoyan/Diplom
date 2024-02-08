@@ -1,28 +1,33 @@
-import { GiFilmStrip } from "react-icons/gi";
+import { LuPopcorn } from "react-icons/lu";
 import ROUTES from "../../../routes";
-import { PiFilmSlateBold } from "react-icons/pi";
+import { CiSaveDown2 } from "react-icons/ci";
+import { FaDesktop, FaStar } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
 
 export const navLinksData = [
   {
     title: "Home",
     to: ROUTES.HOME,
+    icon: <IoHome />,
   },
   {
     title: "Movies",
     to: ROUTES.MOVIES,
-    icon: <GiFilmStrip />,
+    icon: <LuPopcorn />,
   },
   {
     title: "Tv Shows",
     to: ROUTES.NEWS,
+    icon: <FaDesktop />,
   },
   {
-    title: "Documents",
-    to: ROUTES.DOCUMENTS,
+    title: "Rating",
+    to: ROUTES.RATING,
+    icon: <FaStar />,
   },
   {
     title: "Saved Films",
     to: ROUTES.SAVEDFILMS,
-    icon:<PiFilmSlateBold />
+    icon: <CiSaveDown2 />,
   },
 ];

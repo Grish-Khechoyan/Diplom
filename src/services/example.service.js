@@ -2,48 +2,32 @@ import appAxios from "./axios.service";
 
 export const getFilms = async (page, limit) => {
   try {
-    const response = await appAxios.get(`/discover/movie`, {
+    const response = await appAxios.get(`discover/movie`, {
       params: {
         api_key: "88d539e4615b22d8b094b9c0e143595d",
         page: page,
         limit: limit,
       },
     });
-
-    const movieData = response.data;
-
-    const uniqueMovies = [];
-    const uniqueIds = new Set();
-
-    movieData.results.forEach((movie) => {
-      if (!uniqueIds.has(movie.id)) {
-        uniqueIds.add(movie.id);
-        uniqueMovies.push(movie);
-      }
-    });
-
-    return uniqueMovies;
+    return response.data;
   } catch (error) {
     console.error("Error fetching data:", error);
     return [];
   }
 };
 
-// export const getFilms = async (page, limit) => {
-//   try {
-//     const response = await appAxios.get(`/discover/movie`, {
-//       params: {
-//         api_key: "88d539e4615b22d8b094b9c0e143595d",
-//         page: page,
-//         limit: limit,
-//       },
-//     });
-//     const data = response.data;
-//     return data.results;
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//   }
-// };
+export const genres = async () => {
+  try {
+    const genresfetch = await appAxios.get("genre/movie/list", {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+      },
+    });
+    return genresfetch.data.results;
+  } catch (error) {
+    console.error("Error fetching geners:", error);
+  }
+};
 
 export const search = async (searchValue) => {
   try {
@@ -62,14 +46,42 @@ export const search = async (searchValue) => {
 
 export const fetchTvData = async () => {
   try {
-    const getTv = await appAxios("/discover/tv", {
+    const getTv = await appAxios("discover/tv", {
       params: {
         api_key: "88d539e4615b22d8b094b9c0e143595d",
       },
     });
-    const getTvdata = getTv.data;
-    return getTvdata.results;
+    return getTv.data;
   } catch (error) {
     console.log("Error fetching data:", error);
   }
 };
+export const viewMovie = async (id) => {
+  try {
+    const fetchDataSingle = await appAxios.get(`movie/${id}`, {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+        videoUrl: "&append_to_response=videos",
+      },
+    });
+    return fetchDataSingle.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
+export const viewMovieVideoKey = async (id) => {
+  try {
+    const fetchDataSingle = await appAxios.get(`movie/${id}/videos`, {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+        videoUrl: "&append_to_response=videos",
+      },
+    });
+    return fetchDataSingle.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
+// https://api.themoviedb.org/3/movie/572802?api_key=88d539e4615b22d8b094b9c0e143595d&append_to_response=videos,images
