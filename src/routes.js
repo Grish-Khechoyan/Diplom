@@ -3,7 +3,7 @@ const ROUTES = {
   ALLFILMS: "all-films",
   MOVIES: "movies",
   ABOUT: "about",
-  NEWS: "news",
+  TVSHOWS: "tv-shows",
   SOCIAL: "social",
   SAVEDFILMS: "saved-films",
   RATING: "rating",

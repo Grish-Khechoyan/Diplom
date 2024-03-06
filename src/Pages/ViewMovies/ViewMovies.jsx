@@ -9,14 +9,13 @@ export default function ViewMovies() {
   const [viewMoviesVideoKey, setViewMoviesVideoKey] = useState([]);
 
   const { id } = useParams();
-  const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
     const fetchDataMovie = async () => {
       try {
         const viewMovieData = await viewMovie(id);
-        const viewMovieVideoKeyData = await viewMovieVideoKey(id);
         setViewMovies(viewMovieData);
+        const viewMovieVideoKeyData = await viewMovieVideoKey(id);
         setViewMoviesVideoKey(viewMovieVideoKeyData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -58,7 +57,7 @@ export default function ViewMovies() {
             <span>{viewMovies.release_date}</span>
             <span>{viewMovies.original_language.toUpperCase()}</span>
             &nbsp;
-            <span>{viewMovies.genres.map((genr) => genr.name)}</span>
+            <span>{viewMovies.genres.map((genr) => genr.name).join(" ")}</span>
           </p>
           <div>
             <h3>Popularity</h3>

@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { search } from "../../services/example.service";
 
 import "./Home.scss";
+import HomeCarousel from "../../Components/Layouts/HomeCarousel/HomeCarousel";
 
 export default function Home() {
   const [searchKey, setSearchKey] = useState("");
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = setTimeout(async () => {
       try {
@@ -25,10 +25,10 @@ export default function Home() {
         value={searchKey}
         onTextChange={(text) => setSearchKey(text)}
       />
+      <HomeCarousel />
     </div>
   );
 }
-
 // amen tar tar greluc taza datan beri qci datayi mej
 // bayc
 // zapros ani 1 vrkyan heto grel prtsneluc

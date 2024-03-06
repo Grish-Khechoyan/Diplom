@@ -16,7 +16,9 @@ export default function ShowMovieCard({ movies }) {
             alt={movie.title}
           />
           <div className="ShowMovieCard_info">
-            <h2 className="ShowMovieCard_title">{movie.original_title}</h2>
+            <h2 className="ShowMovieCard_title">
+              {movie.original_title || movie.original_name}
+            </h2>
             <p className="ShowMovieCard_average">
               <StarRatings
                 numberOfStars={5}

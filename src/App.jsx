@@ -12,11 +12,11 @@ import Layouts from "./Components/Layouts/Layouts";
 import Movies from "./Pages/Movies/Movies";
 import Social from "./Pages/Social/Social";
 import About from "./Pages/About/About";
-import News from "./Pages/News/News";
 import Home from "./Pages/Home/Home";
 import ROUTES from "./routes";
 
 import "./App.css";
+import TvShows from "./Pages/TvShows/TvShows";
 
 function App() {
   const router = createBrowserRouter(
@@ -25,11 +25,13 @@ function App() {
         <Route index element={<Home />} />
         <Route path={ROUTES.MOVIES} element={<Movies />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
-        <Route path={ROUTES.NEWS} element={<News />} />
+        <Route path={ROUTES.TVSHOWS} element={<TvShows />} />
         <Route path={ROUTES.SOCIAL} element={<Social />} />
         <Route path={ROUTES.RATING} element={<Rating />} />
         <Route path={ROUTES.SAVEDFILMS} element={<SavedFilms />} />
+        <Route path="/:id" element={<ViewMovies />} />
         <Route path="/movies/:id" element={<ViewMovies />} />
+        <Route path="/tv-shows/:id" element={<ViewMovies />} />
       </Route>
     )
   );

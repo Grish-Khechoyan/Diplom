@@ -1,5 +1,5 @@
 import appAxios from "./axios.service";
-
+/******************** All Film ********************/
 export const getFilms = async (page, limit) => {
   try {
     const response = await appAxios.get(`discover/movie`, {
@@ -15,6 +15,8 @@ export const getFilms = async (page, limit) => {
     return [];
   }
 };
+console.log(getFilms);
+/******************** Genre ********************/
 
 export const genres = async () => {
   try {
@@ -29,6 +31,8 @@ export const genres = async () => {
   }
 };
 
+/******************** Search ********************/
+
 export const search = async (searchValue) => {
   try {
     const getSearch = await appAxios.get("/search/movie", {
@@ -38,24 +42,15 @@ export const search = async (searchValue) => {
       },
     });
     const dataSerach = getSearch.data;
+    console.log(dataSerach);
     return dataSerach.results;
   } catch (error) {
     console.log("Error fetching data:", error);
   }
 };
 
-export const fetchTvData = async () => {
-  try {
-    const getTv = await appAxios("discover/tv", {
-      params: {
-        api_key: "88d539e4615b22d8b094b9c0e143595d",
-      },
-    });
-    return getTv.data;
-  } catch (error) {
-    console.log("Error fetching data:", error);
-  }
-};
+/******************** View Movie ********************/
+
 export const viewMovie = async (id) => {
   try {
     const fetchDataSingle = await appAxios.get(`movie/${id}`, {
@@ -84,4 +79,64 @@ export const viewMovieVideoKey = async (id) => {
   }
 };
 
-// https://api.themoviedb.org/3/movie/572802?api_key=88d539e4615b22d8b094b9c0e143595d&append_to_response=videos,images
+/********************* Tv *************************/
+
+export const fetchTvData = async (page) => {
+  try {
+    const getTv = await appAxios("discover/tv", {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+        page: page,
+      },
+    });
+    return getTv.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
+export const viewTv = async (id) => {
+  try {
+    const fetchDataSingle = await appAxios.get(`tv/${id}`, {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+        videoUrl: "&append_to_response=videos",
+      },
+    });
+    return fetchDataSingle.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
+export const viewTvVideoKey = async (id) => {
+  try {
+    const fetchDataSingle = await appAxios.get(`tv/${id}/videos`, {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+        videoUrl: "&append_to_response=videos",
+      },
+    });
+    return fetchDataSingle.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
+export const moviesRated = async (id) => {
+  try {
+    const fetchDataSingle = await appAxios.get(`account/${id}/rated/movies`, {
+      params: {
+        api_key: "88d539e4615b22d8b094b9c0e143595d",
+        videoUrl: "&append_to_response=videos",
+      },
+    });
+    return fetchDataSingle.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
+console.log(moviesRated);
+
+// web scrap

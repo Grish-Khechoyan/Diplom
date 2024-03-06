@@ -5,6 +5,7 @@ export default function SearchInput({ value, onTextChange }) {
   return (
     <div className="search">
       <AiOutlineSearch className="search_icon" />
+
       <input
         value={value}
         onChange={(e) => onTextChange(e.target.value)}

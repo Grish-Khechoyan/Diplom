@@ -17,7 +17,7 @@ export const navLinksData = [
   },
   {
     title: "Tv Shows",
-    to: ROUTES.NEWS,
+    to: ROUTES.TVSHOWS,
     icon: <FaDesktop />,
   },
   {
