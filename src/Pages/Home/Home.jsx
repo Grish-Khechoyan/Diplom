@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { search } from "../../services/example.service";
 
 import "./Home.scss";
-import HomeCarousel from "../../Components/Layouts/HomeCarousel/HomeCarousel";
+import HomeCarousel from "../../Components/Layouts/HomeCarouselSlider/HomeCarousel/HomeCarousel";
+import PopularSliderMovie from "../../Components/Layouts/HomeCarouselSlider/PopularSliderMovie/PopularSliderMovie";
 
 export default function Home() {
   const [searchKey, setSearchKey] = useState("");
   const [data, setData] = useState([]);
+  
   useEffect(() => {
     const fetchData = setTimeout(async () => {
       try {
@@ -26,6 +28,7 @@ export default function Home() {
         onTextChange={(text) => setSearchKey(text)}
       />
       <HomeCarousel />
+      {/* <PopularSliderMovie /> */}
     </div>
   );
 }

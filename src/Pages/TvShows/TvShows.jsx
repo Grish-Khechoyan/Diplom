@@ -45,7 +45,7 @@ export default function TvShows() {
             height: "calc(100vh)",
             overflowY: "auto",
           }}>
-          <ViewMovies tvData={tvData} />
+          <ViewMovies  />
           <ShowMovieCard movies={tvData} />
           {/* <button onClick={() => setPage((prevPage) => prevPage + 1)}>
             Load More

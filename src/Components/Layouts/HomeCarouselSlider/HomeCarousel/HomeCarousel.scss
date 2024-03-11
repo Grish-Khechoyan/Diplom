@@ -1,5 +1,9 @@
 .home_carousel {
   margin-top: 2%;
+
+  .carousel-inner {
+  }
+
   .home_carousel_item {
     .home_carousel_item_bcg {
       display: flex;
@@ -33,6 +37,14 @@
         font-weight: bold;
         line-height: 50px;
         padding-right: 10px;
+      }
+      .buttonPlay {
+        font-size: 24px;
+        color: azure;
+        &:hover {
+          transition: 0.4s;
+          color: rgb(2, 132, 123);
+        }
       }
     }
   }

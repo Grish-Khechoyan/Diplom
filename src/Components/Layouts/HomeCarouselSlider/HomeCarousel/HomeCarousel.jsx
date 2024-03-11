@@ -1,11 +1,12 @@
 import Carousel from "react-bootstrap/Carousel";
 import { useEffect, useState } from "react";
-import { getFilms } from "../../../services/example.service";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { getFilms } from "../../../../services/example.service";
 import StarRatings from "react-star-ratings";
 import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
 import "./HomeCarousel.scss";
+import "slick-carousel/slick/slick-theme.css";
+import { SiGoogleplay } from "react-icons/si";
 
 export default function HomeCarousel() {
   const imgBaseURL = "https://image.tmdb.org/t/p/w500";
@@ -15,9 +16,8 @@ export default function HomeCarousel() {
     const fetchData = async () => {
       try {
         const movieData = await getFilms();
-        if (Array.isArray(movieData.results)) {
-          setMovies(movieData.results);
-        }
+
+        setMovies(movieData.results);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -54,7 +54,9 @@ export default function HomeCarousel() {
                   starHoverColor="yellow"
                 />
                 <p>{movie.overview}</p>
-                <Link to={`/${movie.id}`}>View</Link>
+                <Link to={`/movies/${movie.id}`} className="buttonPlay">
+                  <SiGoogleplay />
+                </Link>
               </div>
             </Carousel.Caption>
           </Carousel.Item>

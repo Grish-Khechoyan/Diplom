@@ -29,8 +29,8 @@ function App() {
         <Route path={ROUTES.SOCIAL} element={<Social />} />
         <Route path={ROUTES.RATING} element={<Rating />} />
         <Route path={ROUTES.SAVEDFILMS} element={<SavedFilms />} />
-        <Route path="/:id" element={<ViewMovies />} />
         <Route path="/movies/:id" element={<ViewMovies />} />
+        <Route path="/rating/:id" element={<ViewMovies />} />
         <Route path="/tv-shows/:id" element={<ViewMovies />} />
       </Route>
     )

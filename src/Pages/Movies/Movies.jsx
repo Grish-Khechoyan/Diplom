@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFilms } from "../../services/example.service";
+import { getFilms, search } from "../../services/example.service";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ShowMovieCart from "../ShowMovieCard/ShowMovieCard";
 
@@ -10,6 +10,7 @@ export default function Movies() {
   const [page, setPage] = useState(1);
   const [loadingInitial, setLoadingInitial] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,10 +26,15 @@ export default function Movies() {
     fetchData();
   }, [page]);
 
+  // useEffect(() => {
+  //   const {results} = await search()
+  //   setMovies(results)
+  // }, [searchKey]);
+
   const fetchMoreData = () => {
-    if (page < totalPages) {
-      setPage((prevPage) => prevPage + 1);
-    }
+    // if (page < totalPages) {
+    //   setPage((prevPage) => prevPage + 1);
+    // }
     setPage((prevPage) => prevPage + 1);
   };
 
@@ -47,9 +53,9 @@ export default function Movies() {
             overflowY: "auto",
           }}>
           <ShowMovieCart movies={movies} />
-          {/* <button onClick={() => setPage((prevPage) => prevPage + 1)}>
+          <button onClick={() => setPage((prevPage) => prevPage + 1)}>
             Load More
-          </button> */}
+          </button>
         </InfiniteScroll>
       )}
     </div>

@@ -1,67 +1,89 @@
 .ShowMovieCard {
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  // position: relative;
 
-    &_wrap {
-        display: inline-block;
-        padding: 10px;
-        position: relative;
-        overflow: hidden; 
-
-        .ShowMovieCard_img {
-            margin-top: 10px;
-            width: 220px;
-            border-radius: 20px;
-            transition: transform 0.3s ease-in-out; 
-        }
-
-        .ShowMovieCard_info {
-            width: 100%;
-            padding-top: 8px;
-            line-height: 2px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            padding-left:10px;
-            color: azure;
-            text-align: left;
-            transform: translateY(100%); 
-            transition: transform 0.3s ease-in-out;
-            
-            
-            .ShowMovieCard_title { 
-                font-size: 16px;
-            }
-
-            .ShowMovieCard_average {
-                font-size: 15px;
-            }
-
-            .ShowMovieCard_language{
-                text-align: end;
-                padding-right:  10px;
-                font-size: 16px;
-                text-transform: uppercase;
-                bottom: 0;
-            }
-        }
-
-        &:hover {
-            .ShowMovieCard_img {
-                transform: scale(1.08); 
-                object-fit: cover;
-                border-radius: 25px;
-
-            }
-
-            .ShowMovieCard_info {
-                height: 30%;
-                border-radius:0px 0px 20px 20px ;
-                padding-left:10px;
-                transform: translateY(0);
-                background: linear-gradient(rgba(95, 95, 95, 0.607),rgba(0, 0, 0, 0.881));
-            }
-        }
+  .playButton {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    transition: 0.1s;
+    color: azure;
+    z-index: 1;
+    transition: all 0.2s;
+    &:hover {
+      transition: 0.4s;
+      color: rgb(2, 132, 123);
     }
+  }
+
+  &_wrap {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+
+    .ShowMovieCard_img {
+      margin-top: 10px;
+      width: 220px;
+      border-radius: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .ShowMovieCard_info {
+      width: 100%;
+      padding-top: 8px;
+      line-height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding-left: 10px;
+      color: azure;
+      text-align: left;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+
+      .ShowMovieCard_title {
+        font-size: 16px;
+      }
+
+      .ShowMovieCard_average {
+        font-size: 15px;
+      }
+
+      .ShowMovieCard_language {
+        text-align: end;
+        padding-right: 10px;
+        font-size: 16px;
+        text-transform: uppercase;
+        bottom: 0;
+      }
+    }
+
+    &:hover {
+      .ShowMovieCard_img {
+        transform: scale(1.08);
+        object-fit: cover;
+        border-radius: 25px;
+      }
+
+      .ShowMovieCard_info {
+        height: 24%;
+        border-radius: 0px 0px 20px 20px;
+        padding-left: 10px;
+        transform: translateY(0);
+        background: linear-gradient(
+          rgba(95, 95, 95, 0.607),
+          rgba(0, 0, 0, 0.881)
+        );
+      }
+      .playButton {
+        display: block;
+      }
+    }
+  }
 }
