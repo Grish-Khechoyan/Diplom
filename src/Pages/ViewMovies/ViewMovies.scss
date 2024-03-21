@@ -1,0 +1,32 @@
+.ViewMovies {
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 60px;
+  .ViewMovies_info {
+    margin-top: 20px;
+    .ViewMovies_info_content {
+      display: flex;
+      .ViewMovies_info_content_wrap {
+        .ViewMovies_info_title {
+          display: flex;
+          & > span {
+            margin-left: 10px;
+          }
+        }
+      }
+      .ViewMovies_info_date_genr,
+      .ViewMovies_info_duration,
+      .ViewMovies_info_language {
+        border-left: 1px solid #cccccc8f;
+        padding-left: 10px;
+        text-align: center;
+        margin-left: 10px;
+      }
+    }
+    .ViewMovies_info_popularity {
+      border-left: 1px solid #ccc;
+      margin-left: 20;
+      padding-left: 20;
+    }
+  }
+}

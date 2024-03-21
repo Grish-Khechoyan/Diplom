@@ -52,7 +52,14 @@ export const search = async (searchValue) => {
 };
 
 /******************** View Movie ********************/
-
+export const moviesRated = async () => {
+  try {
+    const fetchDataSingle = await appAxios.get(`/movie/top_rated`);
+    return fetchDataSingle.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
 export const viewMovie = async (id) => {
   try {
     const fetchDataSingle = await appAxios.get(`movie/${id}`);
@@ -71,6 +78,15 @@ export const viewMovieReviews = async (id) => {
   }
 };
 
+export const moviesReviews = async (id) => {
+  try {
+    const fetchDataReviews = await appAxios.get(`/movie/${id}/reviews`);
+    return fetchDataReviews.data;
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+};
+
 /****** */
 export const viewMovieVideoKey = async (id) => {
   try {
@@ -83,13 +99,9 @@ export const viewMovieVideoKey = async (id) => {
 
 /********************* Tv *************************/
 
-export const fetchTvData = async (page) => {
+export const fetchTvData = async () => {
   try {
-    const getTv = await appAxios("discover/tv", {
-      params: {
-        page: page,
-      },
-    });
+    const getTv = await appAxios("discover/tv");
     return getTv.data;
   } catch (error) {
     console.log("Error fetching data:", error);
@@ -114,16 +126,15 @@ export const viewTvVideoKey = async (id) => {
   }
 };
 
-export const moviesRated = async () => {
+export const tvReviews = async (id) => {
   try {
-    const fetchDataSingle = await appAxios.get(`/movie/top_rated`);
-    return fetchDataSingle.data;
+    const fetchDataReviews = await appAxios.get(`/tv/${id}/reviews`);
+    return fetchDataReviews.data;
   } catch (error) {
     console.log("Error fetching data:", error);
   }
 };
-
-console.log(moviesRated);
+console.log(tvReviews);
 
 // web scrap
 

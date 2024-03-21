@@ -5,7 +5,7 @@ import ShowMovieCart from "../ShowMovieCard/ShowMovieCard";
 
 import "./Movies.scss";
 
-export default function Movies() {
+export default function Movies({ searchKey }) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [loadingInitial, setLoadingInitial] = useState(true);
@@ -26,15 +26,21 @@ export default function Movies() {
     fetchData();
   }, [page]);
 
-  // useEffect(() => {
-  //   const {results} = await search()
-  //   setMovies(results)
-  // }, [searchKey]);
+  useEffect(() => {
+    const fetchSearchData = async () => {
+      try {
+        if (searchKey) {
+          const { results } = await search(searchKey);
+          setMovies(results);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchSearchData();
+  }, [searchKey]);
 
   const fetchMoreData = () => {
-    // if (page < totalPages) {
-    //   setPage((prevPage) => prevPage + 1);
-    // }
     setPage((prevPage) => prevPage + 1);
   };
 
@@ -53,9 +59,7 @@ export default function Movies() {
             overflowY: "auto",
           }}>
           <ShowMovieCart movies={movies} />
-          <button onClick={() => setPage((prevPage) => prevPage + 1)}>
-            Load More
-          </button>
+          <button onClick={fetchMoreData}>Load More</button>
         </InfiniteScroll>
       )}
     </div>

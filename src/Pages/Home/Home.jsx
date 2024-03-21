@@ -9,7 +9,7 @@ import PopularSliderMovie from "../../Components/Layouts/HomeCarouselSlider/Popu
 export default function Home() {
   const [searchKey, setSearchKey] = useState("");
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     const fetchData = setTimeout(async () => {
       try {
@@ -28,7 +28,8 @@ export default function Home() {
         onTextChange={(text) => setSearchKey(text)}
       />
       <HomeCarousel />
-      {/* <PopularSliderMovie /> */}
+        {/* <PopularSliderMovie /> */}
+      
     </div>
   );
 }

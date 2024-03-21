@@ -11,6 +11,7 @@ export default function Layouts() {
           flex: 1,
           backgroundColor: "#161D30 ",
           height: "100vh",
+          overflow: "auto",
         }}>
         <Outlet />
       </div>
